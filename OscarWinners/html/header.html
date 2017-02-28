@@ -1,0 +1,25 @@
+<div class="header">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Idei Oscar nyertesek áttekintő</a>
+            </div>
+            <div class="collapse navbar-collapse" id="main-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="state in states" class="hvr-bounce-to-bottom" ng-class="{'active': state.name == routerState.current.name}" ng-if="state.show">
+                        <a ui-sref="{{state.name}}" href="#">{{'PAGES.'+state.name | uppercase | translate}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="title">
+        {{'PAGES.'+routerState.current.name | uppercase | translate}}
+    </div>
+</div>

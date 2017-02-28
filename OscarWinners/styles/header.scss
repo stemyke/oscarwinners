@@ -1,0 +1,170 @@
+﻿$oscar: #d0a933;
+
+.socials {
+    padding: 5px 10px 10px 0px;
+    text-align: right;
+}
+.socials a, .socials a:hover {
+    color: #000;
+    padding: 0px 5px;
+    text-decoration: none;
+}
+.socials a i {
+    width:30px;
+    height:30px;
+    line-height:30px;
+    margin-right: 5px;
+    text-align:center;
+    color:#000;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    border:1px solid #e7e7e7;
+    transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -webkit-transition:all 0.2s ease-in-out;
+    -o-transition:all 0.2s ease-in-out;
+}
+.socials a:hover i {
+    background: $oscar;
+    color:#fff;
+    border:1px solid $oscar;
+}
+.navbar-collapse {
+    padding: 0px;
+}
+.top-nav {
+    background-color: white;
+    position: relative;
+    z-index: 1000;
+    /*box-shadow: 0px 3px 3px $oscar, 0px -3px 3px $oscar;*/
+    border-top: 3px solid $oscar;
+}
+.top-nav .logo {
+    background: url("../img/logo.png") no-repeat;
+    background-size: contain;
+}
+ul.nav.navbar-nav{
+    float: none;
+    text-align: right;
+}
+nav.navbar.navbar-default {
+    background-color: inherit;
+    border: none;
+    margin: 0;
+}
+.navbar-nav > li {
+    float: none;
+    display: inline-block;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    padding: 2.15em 1.5em;
+    font-weight: 300;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #377952;
+}
+/* Effect 11: text fill based on Lea Verou's animation http://dabblet.com/gist/6046779 */
+/* Bounce To Bottom */
+.hvr-bounce-to-bottom {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+.hvr-bounce-to-bottom:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color:#fff;
+    /*background: $oscar;*/
+    background: $oscar;
+    -webkit-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    -o-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: transform;
+    -o-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+.navbar-nav > li.hvr-bounce-to-bottom > a:hover,.navbar-nav > li > a:hover {
+    color: #fff !important;
+}
+.hvr-bounce-to-bottom:hover:before, .hvr-bounce-to-bottom:focus:before, .hvr-bounce-to-bottom:active:before {
+    -webkit-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    -moz-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: $oscar;
+}
+@media(max-width:767px){
+    .top-nav .logo {
+        background: none;
+    }
+    ul.nav.navbar-nav {
+        text-align: center;
+    }
+    button.navbar-toggle {
+        display: block;
+        width: 95%;
+        font-size: 1.6em;
+        padding: 11px 0px;
+        margin: 0 auto;
+        border: none;
+        text-align: right;
+    }
+    .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+        float:none;
+        background: url("../img/logo.png") no-repeat;
+        background-size: contain;
+    }
+    nav.navbar.navbar-default {
+        color: $oscar;
+    }
+    div#bs-example-navbar-collapse-1 {
+        padding: 0;
+    }
+    .navbar-nav {
+        margin: 0;
+    }
+    .navbar-nav > li {
+        display: block;
+    }
+    .navbar-default .navbar-nav > li > a {
+        padding: 1em 0em;
+        font-size: 1em;
+    }
+}
