@@ -1,6 +1,7 @@
 @import "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "../node_modules/font-awesome/scss/font-awesome.scss";
-@import "header.scss";
+@import "_header.scss";
+@import "_content.scss";
 
 body, html {
     margin: 0px;

@@ -12,7 +12,14 @@ states = [
     {
         name: "home",
         url: "/home",
-        templateUrl: "/html/home.html",
+        templateUrl: "home.html",
+        controller: "HomeController",
+        show: true
+    },
+    {
+        name: "home2",
+        url: "/home2",
+        templateUrl: "home.html",
         controller: "HomeController",
         show: true
     }

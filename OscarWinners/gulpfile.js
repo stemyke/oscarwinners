@@ -27,17 +27,28 @@ gulp.task("clean", function (cb) {
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
+// másolja az asset fájlokat
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task("copy", ["clean"], function () {
+    return gulp.src(["./assets/**", "./node_modules/font-awesome/*fonts/**"])
+        .pipe(gulp.dest("./dist"));
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
 // lefordítja a sass fájlokat
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
 gulp.task("build-css", ["clean"], function () {
-    return gulp.src("./styles/*")
+    return gulp.src("./styles/*.scss")
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cachebust.resources())
         .pipe(sourcemaps.write("./maps"))
-        .pipe(gulp.dest("./dist"));
+        .pipe(gulp.dest("./dist/css"));
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -54,10 +65,10 @@ gulp.task("build-template-cache", ["clean"], function () {
     return gulp.src("./html/*.html")
         .pipe(ngHtml2Js({
         moduleName: "templatesModule",
-        prefix: "/html/"
+        prefix: ""
     }))
         .pipe(concat("templates.js"))
-        .pipe(gulp.dest("./dist/js/"));
+        .pipe(gulp.dest("./dist/js"));
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -70,6 +81,31 @@ gulp.task("jshint", function () {
     gulp.src("/js/*.js")
         .pipe(jshint())
         .pipe(jshint.reporter("default"));
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+//
+// javascript build, a fájlok sorrendjét a browserify határozza meg
+//
+/////////////////////////////////////////////////////////////////////////////////////
+
+gulp.task("build-js", ["clean"], function () {
+    var b = browserify({
+        entries: "./js/app.js",
+        debug: true,
+        paths: ["./js/controllers", "./js/services", "./js/directives"],
+        transform: [ngAnnotate]
+    });
+    
+    return b.bundle()
+        .pipe(source("bundle.js"))
+        .pipe(buffer())
+        .pipe(cachebust.resources())
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(uglify())
+        .on("error", gutil.log)
+        .pipe(sourcemaps.write("./"))
+        .pipe(gulp.dest("./dist/js"));
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -96,36 +132,11 @@ gulp.task("test", ["build-js"], function () {
 
 /////////////////////////////////////////////////////////////////////////////////////
 //
-// javascript build, a fájlok sorrendjét a browserify határozza meg
-//
-/////////////////////////////////////////////////////////////////////////////////////
-
-gulp.task("build-js", ["clean"], function () {
-    var b = browserify({
-        entries: "./js/app.js",
-        debug: true,
-        paths: ["./js/controllers", "./js/services", "./js/directives"],
-        transform: [ngAnnotate]
-    });
-    
-    return b.bundle()
-        .pipe(source("bundle.js"))
-        .pipe(buffer())
-        .pipe(cachebust.resources())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(uglify())
-        .on("error", gutil.log)
-        .pipe(sourcemaps.write("./"))
-        .pipe(gulp.dest("./dist/js/"));
-});
-
-/////////////////////////////////////////////////////////////////////////////////////
-//
 // teljes build
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-gulp.task("build", ["clean", "build-css", "build-template-cache", "jshint", "build-js"], function () {
+gulp.task("build", ["clean", "copy", "build-css", "build-template-cache", "jshint", "build-js"], function () {
     return gulp.src("index.html")
         .pipe(cachebust.references())
         .pipe(gulp.dest("dist"));

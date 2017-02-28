@@ -1,0 +1,39 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Merriweather+Sans");
+@import "_colors.scss";
+
+body {
+    background: $background-color;
+    font-family: 'Merriweather Sans';
+}
+
+body, .container, .view {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.content {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.star {
+    color: #d0a933;
+}
+
+.cover {
+    max-width: 150px;
+    max-height: 300px;
+    padding-right: 20px;
+}

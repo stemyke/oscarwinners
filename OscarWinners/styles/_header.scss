@@ -1,0 +1,36 @@
+@import "_colors.scss";
+
+.navbar.navbar-default {
+    background-color: $header-color;
+    border: none;
+}
+
+.navbar-brand {
+    padding: 40px 15px 40px 60px;
+    height: auto;
+    background: url("../images/logo.jpg") no-repeat;
+    background-size: contain;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: $header-color;
+    background-color: $oscar-color;
+}
+
+@media (min-width: 768px) {
+    .navbar-default .navbar-nav > li > a {
+        padding: 40px 25px;
+    }
+    .nav.navbar-nav {
+        float: right;
+    }
+}
+
+.title {
+    font-style: normal;
+    color: $oscar-color;
+    font-size: 22px;
+    border-bottom: solid;
+    border-color: $oscar-color;
+    padding-left: 15px;
+}

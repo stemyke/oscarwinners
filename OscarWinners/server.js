@@ -6,9 +6,6 @@ path = require("path");
 //Fájlok kiszolgálása a dist mappából
 app.use("/", express.static(__dirname + "/dist/"));
 
-//Fájlok kiszolgálása a translations mappából
-app.use("/translations", express.static(__dirname + "/translations/"));
-
 //Nem létezõ fájlok esetében az index.html-t adja vissza
 app.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname + "/dist/index.html"));
