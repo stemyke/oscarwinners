@@ -1,6 +1,6 @@
 angular = require("angular");
 
-angular.module("app").controller("AddCandidateController", ["$scope", "$q", "$location", "OscarService", function ($scope, $q, $location, oscarService) {
+angular.module("app").controller("AddCandidateController", ["$scope", "$location", "OscarService", function ($scope, $location, oscarService) {
         
     $scope.candidate = {
         id: oscarService.getNextId()
@@ -12,8 +12,9 @@ angular.module("app").controller("AddCandidateController", ["$scope", "$q", "$lo
         
     $scope.submit = function (invalid) {
         if (invalid) return;
-        oscarService.addCandidate($scope.candidate);
-        $location.path("/candidates");
+        oscarService.addCandidate($scope.candidate).then(function () {
+            $location.path("/candidates");
+        });
     };
 
 }]);
