@@ -93,7 +93,7 @@ gulp.task("build-js", ["clean"], function () {
     var b = browserify({
         entries: "./js/app.js",
         debug: true,
-        paths: ["./js/controllers", "./js/services", "./js/directives"],
+        paths: ["./js/controllers", "./js/services", "./js/directives", "./js/filters"],
         transform: [ngAnnotate]
     });
     

@@ -10,9 +10,12 @@
   },
   "CANDIDATES": {
     "TITLE": "Movie title",
+    "TITLE_SEARCH": "Search for in movie titles",
     "DESCRIPTION": "Description",
     "IS_WINNER": "Winner",
     "EDIT": "Edit",
-    "ADD": "Add new candidate"
+    "ADD": "Add new candidate",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next"
   }
 }

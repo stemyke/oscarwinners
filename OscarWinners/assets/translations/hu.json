@@ -10,9 +10,12 @@
   },
   "CANDIDATES": {
     "TITLE": "Film címe",
+    "TITLE_SEARCH": "Film címre keresés",
     "DESCRIPTION": "Leírás",
     "IS_WINNER": "Nyertes",
     "EDIT": "Módosítás",
-    "ADD": "Új jelölt felvétele"
+    "ADD": "Új jelölt felvétele",
+    "PREVIOUS": "Előző",
+    "NEXT": "Következő"
   }
 }

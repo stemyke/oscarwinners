@@ -23,8 +23,8 @@ states = [
         controller: "CandidatesController",
         resolve: {
             candidates: ["OscarService", function (oscarService) {
-                return oscarService.getCandidates();
-            }]
+                    return oscarService.getCandidates();
+                }]
         },
         show: true
     },
@@ -35,21 +35,33 @@ states = [
         controller: "CandidatesController",
         resolve: {
             candidates: ["OscarService", function (oscarService) {
-                return oscarService.getCandidates();
-            }]
+                    return oscarService.getCandidates();
+                }]
         },
         show: true
+    },
+    {
+        name: "edit",
+        url: "/edit?id",
+        templateUrl: "html/candidate_form.html",
+        controller: "EditCandidateController",
+        resolve: {
+            candidate: ["OscarService", "$stateParams", function (oscarService, $stateParams) {
+                return oscarService.getCandidateById($stateParams.id);
+            }]
+        },
+        show: false
     }
 ];
 
 //beállítások
 angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"])
-    .config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$translateProvider", function ($urlRouterProvider, $stateProvider,  $locationProvider, $translateProvider) {
+    .config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$translateProvider", function ($urlRouterProvider, $stateProvider, $locationProvider, $translateProvider) {
         
         
         //default state megadása
         $urlRouterProvider.otherwise("/home");
-
+        
         //state kezelés
         angular.forEach(states, function (state) {
             $stateProvider.state(state.name, state);
@@ -69,6 +81,7 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
         
         //alapértelmezett nyelv beállítása
         var preferredLanguage = localStorage.getItem("language");
+        console.log(preferredLanguage);
         if (!preferredLanguage) {
             preferredLanguage = "hu";
             localStorage.setItem("language", preferredLanguage);
@@ -83,6 +96,9 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
         $rootScope.routerState = $state;
     }]);
 
+require("HeaderController");
 require("HomeController");
 require("CandidatesController");
+require("EditCandidateController");
 require("OscarService");
+require("StartFromFilter");

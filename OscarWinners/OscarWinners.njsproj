@@ -32,33 +32,41 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="assets\images\logo.jpg" />
+    <Content Include="assets\translations\en.json" />
+    <Content Include="assets\translations\hu.json" />
+    <Content Include="html\candidates.html" />
+    <Content Include="html\candidate_form.html" />
     <Content Include="html\header.html" />
     <Content Include="html\home.html" />
-    <Content Include="images\glyphicons_000_glass.png" />
-    <Content Include="images\glyphicons_001_leaf.png" />
-    <Content Include="images\glyphicons_002_dog.png" />
-    <Content Include="images\glyphicons_003_user.png" />
     <Content Include="index.html" />
     <Content Include="package.json" />
-    <Content Include="styles\header.scss" />
     <Content Include="styles\styles.scss" />
-    <Content Include="translations\en.json" />
-    <Content Include="translations\hu.json" />
+    <Content Include="styles\_colors.scss" />
+    <Content Include="styles\_content.scss" />
+    <Content Include="styles\_header.scss" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="assets\" />
+    <Folder Include="assets\images\" />
+    <Folder Include="assets\translations\" />
     <Folder Include="dist\" />
-    <Folder Include="images\" />
     <Folder Include="js\" />
     <Folder Include="js\controllers\" />
     <Folder Include="html\" />
+    <Folder Include="js\filters\" />
+    <Folder Include="js\services\" />
     <Folder Include="styles\" />
     <Folder Include="tests\" />
-    <Folder Include="translations\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gulpfile.js" />
     <Compile Include="js\app.js" />
+    <Compile Include="js\controllers\CandidatesController.js" />
+    <Compile Include="js\controllers\EditCandidateController.js" />
     <Compile Include="js\controllers\HomeController.js" />
+    <Compile Include="js\filters\StartFromFilter.js" />
+    <Compile Include="js\services\OscarService.js" />
     <Compile Include="karma.conf.js" />
     <Compile Include="server.js" />
   </ItemGroup>
