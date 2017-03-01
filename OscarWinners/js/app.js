@@ -17,25 +17,43 @@ states = [
         show: true
     },
     {
-        name: "home2",
-        url: "/home2",
-        templateUrl: "home.html",
-        controller: "HomeController",
+        name: "candidates",
+        url: "/candidates",
+        templateUrl: "candidates.html",
+        controller: "CandidatesController",
+        resolve: {
+            candidates: ["OscarService", function (oscarService) {
+                return oscarService.getCandidates();
+            }]
+        },
+        show: true
+    },
+    {
+        name: "winners",
+        url: "/winners",
+        templateUrl: "candidates.html",
+        controller: "CandidatesController",
+        resolve: {
+            candidates: ["OscarService", function (oscarService) {
+                return oscarService.getCandidates();
+            }]
+        },
         show: true
     }
 ];
 
 //beállítások
 angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"])
-    .config(["$stateProvider", "$urlRouterProvider", "$locationProvider", "$translateProvider", function ($stateProvider, $urlRouterProvider, $locationProvider, $translateProvider) {
+    .config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$translateProvider", function ($urlRouterProvider, $stateProvider,  $locationProvider, $translateProvider) {
         
+        
+        //default state megadása
+        $urlRouterProvider.otherwise("/home");
+
         //state kezelés
         angular.forEach(states, function (state) {
             $stateProvider.state(state.name, state);
         });
-        
-        //default state megadása
-        $urlRouterProvider.otherwise("/home");
         
         //html5 mód engedélyezése
         $locationProvider.html5Mode({
@@ -56,7 +74,7 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
             localStorage.setItem("language", preferredLanguage);
         }
         $translateProvider.preferredLanguage(preferredLanguage);
-
+        
         //"fertőtlenítő" stratégia beállítása
         $translateProvider.useSanitizeValueStrategy("sanitizeParameters");
     }]).
@@ -66,3 +84,5 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
     }]);
 
 require("HomeController");
+require("CandidatesController");
+require("OscarService");

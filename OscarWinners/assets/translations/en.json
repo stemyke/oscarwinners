@@ -1,5 +1,18 @@
 {
   "PAGES": {
-    "HOME": "Home"
+    "HOME": "Home",
+    "CANDIDATES": "Candidates",
+    "WINNERS": "Winners"
+  },
+  "HEADER": {
+    "TITLE": "The Oscar candidates of the year",
+    "OSCAR": "Oscar statue"
+  },
+  "CANDIDATES": {
+    "TITLE": "Movie title",
+    "DESCRIPTION": "Description",
+    "IS_WINNER": "Winner",
+    "EDIT": "Edit",
+    "ADD": "Add new candidate"
   }
 }

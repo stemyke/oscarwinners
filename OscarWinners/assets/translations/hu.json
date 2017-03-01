@@ -1,5 +1,18 @@
 ﻿{
   "PAGES": {
-    "HOME": "Főoldal"
+    "HOME": "Főoldal",
+    "CANDIDATES": "Jelöltek",
+    "WINNERS": "Nyertesek"
+  },
+  "HEADER": {
+    "TITLE": "Idei Oscar nyertesek áttekintő",
+    "OSCAR": "Oscar szobor"
+  },
+  "CANDIDATES": {
+    "TITLE": "Film címe",
+    "DESCRIPTION": "Leírás",
+    "IS_WINNER": "Nyertes",
+    "EDIT": "Módosítás",
+    "ADD": "Új jelölt felvétele"
   }
 }

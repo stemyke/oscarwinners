@@ -149,7 +149,7 @@ gulp.task("build", ["clean", "copy", "build-css", "build-template-cache", "jshin
 /////////////////////////////////////////////////////////////////////////////////////
 
 gulp.task("watch", function () {
-    return gulp.watch(["./index.html", "./html/*.html", "./styles/*.*css", "./js/**/*.js"], ["build"]);
+    return gulp.watch(["./index.html", "./assets/**", "./html/*.html", "./styles/*.*css", "./js/**/*.js"], ["build"]);
 });
 
 /////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,27 @@
+<div class="content col-sm-10 col-sm-offset-1 col-xs-12">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="col-xs-3">{{'CANDIDATES.TITLE' | translate}}</th>
+                    <th class="col-xs-5">{{'CANDIDATES.DESCRIPTION' | translate}}</th>
+                    <th class="col-xs-2 center">{{'CANDIDATES.IS_WINNER' | translate}}</th>
+                    <th class="col-xs-2 center">{{'CANDIDATES.EDIT' | translate}}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="candidate in candidates" ng-show="routerState.current.name!='winners' || candidate.isWinner">
+                <td class="col-xs-3">{{candidate.title}}</td>
+                <td class="col-xs-5">{{candidate.description}}</td>
+                <td class="col-xs-2 center star">
+                    <i class="fa" ng-class="{'fa-star': candidate.isWinner, 'fa-star-o': !candidate.isWinner}" aria-hidden="true"></i>
+                </td>
+                <td class="col-xs-2 center">
+                    <a href="#"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <button type="button" class="btn btn-default col-sm-offset-10">{{'CANDIDATES.ADD' | translate}}</button>
+</div>
