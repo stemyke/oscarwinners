@@ -6,7 +6,7 @@ angular.module("app").controller("HeaderController", ["$rootScope", "$scope", "$
     var changeTitle = function() {
         var stateName = $rootScope.routerState.current.name.toUpperCase();
         document.title = $filter("translate")("HEADER.TITLE") + "-" + $filter("translate")("PAGES." + stateName);
-    }
+    };
         
     //Ha betöltődött a nyelvi fájl akkor címsor megváltoztatása
     $translate.onReady(changeTitle);

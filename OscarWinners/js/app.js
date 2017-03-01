@@ -23,8 +23,8 @@ states = [
         controller: "CandidatesController",
         resolve: {
             candidates: ["OscarService", function (oscarService) {
-                return oscarService.getCandidates();
-            }]
+                    return oscarService.getCandidates();
+                }]
         },
         show: true
     },
@@ -35,8 +35,8 @@ states = [
         controller: "CandidatesController",
         resolve: {
             candidates: ["OscarService", function (oscarService) {
-                return oscarService.getCandidates();
-            }]
+                    return oscarService.getCandidates();
+                }]
         },
         show: true
     },
@@ -47,8 +47,8 @@ states = [
         controller: "CandidateDetailsController",
         resolve: {
             candidate: ["OscarService", "$stateParams", function (oscarService, $stateParams) {
-                return oscarService.getCandidateById($stateParams.id);
-            }]
+                    return oscarService.getCandidateById($stateParams.id);
+                }]
         },
         show: false
     },
@@ -59,9 +59,16 @@ states = [
         controller: "EditCandidateController",
         resolve: {
             candidate: ["OscarService", "$stateParams", function (oscarService, $stateParams) {
-                return oscarService.getCandidateById($stateParams.id);
-            }]
+                    return oscarService.getCandidateById($stateParams.id);
+                }]
         },
+        show: false
+    },
+    {
+        name: "add",
+        url: "/add",
+        templateUrl: "candidate_form.html",
+        controller: "AddCandidateController",
         show: false
     }
 ];
@@ -72,7 +79,6 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
         
         //alapértelmezett nyelv beállítása
         var preferredLanguage = localStorage.getItem("language");
-        console.log(preferredLanguage);
         if (!preferredLanguage) {
             preferredLanguage = "hu";
             localStorage.setItem("language", preferredLanguage);
@@ -111,6 +117,8 @@ require("HeaderController");
 require("HomeController");
 require("CandidatesController");
 require("CandidateDetailsController");
+require("AddCandidateController");
 require("EditCandidateController");
 require("OscarService");
+require("OnFileChangeDirective");
 require("StartFromFilter");

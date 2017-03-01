@@ -19,17 +19,21 @@
                         <a class="fa fa-sort-asc" href="#" ng-click="orderByWinner='-isWinner';" ng-show="orderByWinner=='isWinner'"></a>
                         <a class="fa fa-sort-desc" href="#" ng-click="orderByWinner=null" ng-show="orderByWinner=='-isWinner'"></a>
                     </th>
-                    <th class="col-xs-2 center">{{'CANDIDATES.EDIT' | translate}}</th>
+                    <th class="col-xs-1 center">{{'CANDIDATES.DETAILS' | translate}}</th>
+                    <th class="col-xs-1 center">{{'CANDIDATES.EDIT' | translate}}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="candidate in (results = (candidates | orderBy:[orderByWinner,orderByTitle] |  filter: (routerState.current.name == 'winners' || '') && {isWinner: true} | filter:search)) | startFrom:getCurrentPage()*pageSize | limitTo:pageSize" ui-sref="details({id: candidate.id})">
+                <tr ng-repeat="candidate in (results = (candidates | orderBy:[orderByWinner,orderByTitle] |  filter: (routerState.current.name == 'winners' || '') && {isWinner: true} | filter:search)) | startFrom:getCurrentPage()*pageSize | limitTo:pageSize">
                     <td class="col-xs-3">{{candidate.title}}</td>
                     <td class="col-xs-5">{{candidate.description}}</td>
                     <td class="col-xs-2 center star">
                         <i class="fa" ng-class="{'fa-star': candidate.isWinner, 'fa-star-o': !candidate.isWinner}" aria-hidden="true"></i>
                     </td>
-                    <td class="col-xs-2 center">
+                    <td class="col-xs-1 center">
+                        <a ui-sref="details({id: candidate.id})" href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    </td>
+                    <td class="col-xs-1 center">
                         <a ui-sref="edit({id: candidate.id})" href="#"><i class="fa fa-edit" aria-hidden="true"></i></a>
                     </td>
                 </tr>
@@ -39,5 +43,5 @@
     <button class="btn btn-default" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">{{'CANDIDATES.PREVIOUS' | translate}}</button>
     <span>{{currentPage+1}}/{{numberOfPages}}</span>
     <button class="btn btn-default" ng-disabled="currentPage >= numberOfPages - 1" ng-click="currentPage=currentPage+1">{{'CANDIDATES.NEXT' | translate}}</button>
-    <button type="button" class="btn btn-default">{{'CANDIDATES.ADD' | translate}}</button>
+    <button type="button" class="btn btn-default" ui-sref="add">{{'CANDIDATES.ADD' | translate}}</button>
 </div>

@@ -5,7 +5,7 @@
     "WINNERS": "Nyertesek",
     "ADD": "Jelölt hozzáadása",
     "EDIT": "Jelölt módosítása",
-    "DETAILS": "Részeltek"
+    "DETAILS": "Részletek"
   },
   "HEADER": {
     "TITLE": "Idei Oscar nyertesek áttekintő",
@@ -16,14 +16,24 @@
     "TITLE_SEARCH": "Keresés a film címekben...",
     "DESCRIPTION": "Leírás",
     "IS_WINNER": "Nyertes",
-    "EDIT": "Módosítás",
-    "ADD": "Új jelölt felvétele",
     "PREVIOUS": "Előző",
-    "NEXT": "Következő"
+    "NEXT": "Következő",
+    "ADD": "@:PAGES.ADD",
+    "EDIT": "@:PAGES.EDIT",
+    "DETAILS": "@:PAGES.DETAILS"
   },
   "DETAILS": {
     "TITLE": "@:CANDIDATES.TITLE",
     "DESCRIPTION": "@:CANDIDATES.DESCRIPTION",
     "BACK": "Vissza a listára"
+  },
+  "CANDIDATE_FORM": {
+    "TITLE": "@:CANDIDATES.TITLE",
+    "TITLE_REQ": "A film címét kötelező megadni!",
+    "DESCRIPTION": "@:CANDIDATES.DESCRIPTION",
+    "DESCRIPTION_REQ": "A film leírását kötelező megadni!",
+    "IS_WINNER": "@:CANDIDATES.IS_WINNER",
+    "COVER_IMAGE": "Borító kép",
+    "SAVE": "Mentés"
   }
 }
