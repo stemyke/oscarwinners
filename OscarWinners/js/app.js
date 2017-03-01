@@ -56,8 +56,19 @@ states = [
 
 //beállítások
 angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"])
-    .config(["$urlRouterProvider", "$stateProvider", "$locationProvider", "$translateProvider", function ($urlRouterProvider, $stateProvider, $locationProvider, $translateProvider) {
+    .config(["$translateProvider", "$urlRouterProvider", "$stateProvider", "$locationProvider", function ($translateProvider, $urlRouterProvider, $stateProvider, $locationProvider) {
         
+        //alapértelmezett nyelv beállítása
+        var preferredLanguage = localStorage.getItem("language");
+        console.log(preferredLanguage);
+        if (!preferredLanguage) {
+            preferredLanguage = "hu";
+            localStorage.setItem("language", preferredLanguage);
+        }
+        $translateProvider.preferredLanguage(preferredLanguage);
+        
+        //"fertőtlenítő" stratégia beállítása
+        $translateProvider.useSanitizeValueStrategy("sanitizeParameters");
         
         //default state megadása
         $urlRouterProvider.otherwise("/home");
@@ -78,18 +89,6 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
             prefix: "translations/",
             suffix: ".json"
         });
-        
-        //alapértelmezett nyelv beállítása
-        var preferredLanguage = localStorage.getItem("language");
-        console.log(preferredLanguage);
-        if (!preferredLanguage) {
-            preferredLanguage = "hu";
-            localStorage.setItem("language", preferredLanguage);
-        }
-        $translateProvider.preferredLanguage(preferredLanguage);
-        
-        //"fertőtlenítő" stratégia beállítása
-        $translateProvider.useSanitizeValueStrategy("sanitizeParameters");
     }]).
     run(["$rootScope", "$state", function ($rootScope, $state) {
         $rootScope.states = states;

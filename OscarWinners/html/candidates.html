@@ -5,24 +5,34 @@
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
-            <tr>
-                <th class="col-xs-3">{{'CANDIDATES.TITLE' | translate}}</th>
-                <th class="col-xs-5">{{'CANDIDATES.DESCRIPTION' | translate}}</th>
-                <th class="col-xs-2 center">{{'CANDIDATES.IS_WINNER' | translate}}</th>
-                <th class="col-xs-2 center">{{'CANDIDATES.EDIT' | translate}}</th>
-            </tr>
+                <tr>
+                    <th class="col-xs-3">
+                        {{'CANDIDATES.TITLE' | translate}}
+                        <a class="fa fa-sort" href="#" ng-click="orderByTitle='title';" ng-show="orderByTitle==null"></a>
+                        <a class="fa fa-sort-asc" href="#" ng-click="orderByTitle='-title';" ng-show="orderByTitle=='title'"></a>
+                        <a class="fa fa-sort-desc" href="#" ng-click="orderByTitle=null;" ng-show="orderByTitle=='-title'"></a>
+                    </th>
+                    <th class="col-xs-5">{{'CANDIDATES.DESCRIPTION' | translate}}</th>
+                    <th class="col-xs-2 center">
+                        {{'CANDIDATES.IS_WINNER' | translate}}
+                        <a class="fa fa-sort" href="#" ng-click="orderByWinner='isWinner';" ng-show="orderByWinner==null"></a>
+                        <a class="fa fa-sort-asc" href="#" ng-click="orderByWinner='-isWinner';" ng-show="orderByWinner=='isWinner'"></a>
+                        <a class="fa fa-sort-desc" href="#" ng-click="orderByWinner=null" ng-show="orderByWinner=='-isWinner'"></a>
+                    </th>
+                    <th class="col-xs-2 center">{{'CANDIDATES.EDIT' | translate}}</th>
+                </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="candidate in (results = (candidates |  filter: (routerState.current.name == 'winners' || '') && {isWinner: true} | filter:search)) | startFrom:getCurrentPage()*pageSize | limitTo:pageSize">
-                <td class="col-xs-3">{{candidate.title}}</td>
-                <td class="col-xs-5">{{candidate.description}}</td>
-                <td class="col-xs-2 center star">
-                    <i class="fa" ng-class="{'fa-star': candidate.isWinner, 'fa-star-o': !candidate.isWinner}" aria-hidden="true"></i>
-                </td>
-                <td class="col-xs-2 center">
-                    <a ui-sref="edit({id: candidate.id})" href="#"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                </td>
-            </tr>
+                <tr ng-repeat="candidate in (results = (candidates | orderBy:[orderByWinner,orderByTitle] |  filter: (routerState.current.name == 'winners' || '') && {isWinner: true} | filter:search)) | startFrom:getCurrentPage()*pageSize | limitTo:pageSize">
+                    <td class="col-xs-3">{{candidate.title}}</td>
+                    <td class="col-xs-5">{{candidate.description}}</td>
+                    <td class="col-xs-2 center star">
+                        <i class="fa" ng-class="{'fa-star': candidate.isWinner, 'fa-star-o': !candidate.isWinner}" aria-hidden="true"></i>
+                    </td>
+                    <td class="col-xs-2 center">
+                        <a ui-sref="edit({id: candidate.id})" href="#"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
