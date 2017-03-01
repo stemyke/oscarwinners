@@ -23,8 +23,8 @@ states = [
         controller: "CandidatesController",
         resolve: {
             candidates: ["OscarService", function (oscarService) {
-                    return oscarService.getCandidates();
-                }]
+                return oscarService.getCandidates();
+            }]
         },
         show: true
     },
@@ -35,15 +35,27 @@ states = [
         controller: "CandidatesController",
         resolve: {
             candidates: ["OscarService", function (oscarService) {
-                    return oscarService.getCandidates();
-                }]
+                return oscarService.getCandidates();
+            }]
         },
         show: true
     },
     {
+        name: "details",
+        url: "/details?id",
+        templateUrl: "candidate_details.html",
+        controller: "CandidateDetailsController",
+        resolve: {
+            candidate: ["OscarService", "$stateParams", function (oscarService, $stateParams) {
+                return oscarService.getCandidateById($stateParams.id);
+            }]
+        },
+        show: false
+    },
+    {
         name: "edit",
         url: "/edit?id",
-        templateUrl: "html/candidate_form.html",
+        templateUrl: "candidate_form.html",
         controller: "EditCandidateController",
         resolve: {
             candidate: ["OscarService", "$stateParams", function (oscarService, $stateParams) {
@@ -98,6 +110,7 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
 require("HeaderController");
 require("HomeController");
 require("CandidatesController");
+require("CandidateDetailsController");
 require("EditCandidateController");
 require("OscarService");
 require("StartFromFilter");

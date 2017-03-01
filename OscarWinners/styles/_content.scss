@@ -32,8 +32,19 @@ h1 {
     color: #d0a933;
 }
 
-.description {
-    padding-top: 40px;
-    text-align: center;
-    color: white;
+.star-big {
+    color: #d0a933;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.cover {
+    max-width: 150px;
+    max-height: 300px;
+    padding-right: 20px;
+}
+
+.cover-big {
+    max-width: 300px;
+    max-height: 600px;
 }

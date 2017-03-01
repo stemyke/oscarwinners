@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="candidate in (results = (candidates | orderBy:[orderByWinner,orderByTitle] |  filter: (routerState.current.name == 'winners' || '') && {isWinner: true} | filter:search)) | startFrom:getCurrentPage()*pageSize | limitTo:pageSize">
+                <tr ng-repeat="candidate in (results = (candidates | orderBy:[orderByWinner,orderByTitle] |  filter: (routerState.current.name == 'winners' || '') && {isWinner: true} | filter:search)) | startFrom:getCurrentPage()*pageSize | limitTo:pageSize" ui-sref="details({id: candidate.id})">
                     <td class="col-xs-3">{{candidate.title}}</td>
                     <td class="col-xs-5">{{candidate.description}}</td>
                     <td class="col-xs-2 center star">
