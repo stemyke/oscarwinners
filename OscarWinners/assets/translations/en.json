@@ -3,8 +3,8 @@
     "HOME": "Home",
     "CANDIDATES": "Candidates",
     "WINNERS": "Winners",
-    "ADD": "Add candidate",
-    "EDIT": "Edit candidate",
+    "ADD": "Add",
+    "EDIT": "Edit",
     "DETAILS": "Details"
   },
   "HEADER": {
@@ -14,7 +14,6 @@
   "CANDIDATES": {
     "TITLE": "Movie title",
     "TITLE_SEARCH": "Search in movie titles...",
-    "DESCRIPTION": "Description",
     "IS_WINNER": "Winner",
     "PREVIOUS": "Previous",
     "NEXT": "Next",
@@ -24,15 +23,18 @@
   },
   "DETAILS": {
     "TITLE": "@:CANDIDATES.TITLE",
-    "DESCRIPTION": "@:CANDIDATES.DESCRIPTION",
+    "DESCRIPTION": "Description",
+    "ADD": "@:PAGES.ADD",
+    "EDIT": "@:PAGES.EDIT",
     "BACK": "Back to list"
   },
   "CANDIDATE_FORM": {
     "TITLE": "@:CANDIDATES.TITLE",
     "TITLE_REQ": "Movie title is required!",
-    "DESCRIPTION": "@:CANDIDATES.DESCRIPTION",
+    "DESCRIPTION": "@:DETAILS.DESCRIPTION",
     "DESCRIPTION_REQ": "Movie description is required!",
     "IS_WINNER": "@:CANDIDATES.IS_WINNER",
+    "BACK": "@:DETAILS.BACK",
     "COVER_IMAGE": "Cover image",
     "SAVE": "Save"
   }

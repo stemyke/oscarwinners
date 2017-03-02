@@ -7,7 +7,7 @@
         </div>
         <div class="form-group" ng-class="{'has-error': form.$submitted && form.$invalid && !candidate.description}">
             <label for="description">{{'CANDIDATE_FORM.DESCRIPTION' | translate}}: </label>
-            <input type="textarea" class="form-control" id="description" rows="5" ng-model="candidate.description" required />
+            <textarea class="form-control" rows="5" id="description" ng-model="candidate.description" required></textarea>
             <div class="error" ng-show="form.$submitted && form.$invalid && !candidate.description">{{'CANDIDATE_FORM.DESCRIPTION_REQ' | translate}}</div>
         </div>
         <div class="form-group">
@@ -19,6 +19,9 @@
             <img class="cover" ng-src="{{candidate.cover ? candidate.cover : 'images/no_image.png'}}" alt="Cover" />
             <input type="file" accept="image" ng-model="image" on-file-change="updateCover" />
         </div>
-        <button type="submit" class="btn btn-default">{{'CANDIDATE_FORM.SAVE' | translate}}</button>
+        <div class="col-xs-12 right">
+            <button type="submit" class="btn btn-default">{{'CANDIDATE_FORM.SAVE' | translate}}</button>
+            <button type="button" class="btn btn-default" ui-sref="candidates">{{'CANDIDATE_FORM.BACK' | translate}}</button>
+        </div>
     </form>
 </div>

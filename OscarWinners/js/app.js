@@ -69,6 +69,11 @@ states = [
         url: "/add",
         templateUrl: "candidate_form.html",
         controller: "AddCandidateController",
+        resolve: {
+            id: ["OscarService", function (oscarService) {
+                    return oscarService.getNextId();
+                }]
+        },
         show: false
     }
 ];
@@ -108,11 +113,13 @@ angular.module("app", ["ui.router", "pascalprecht.translate", "templatesModule"]
             suffix: ".json"
         });
     }]).
+    //Alkalmazás futtatása
     run(["$rootScope", "$state", function ($rootScope, $state) {
         $rootScope.states = states;
         $rootScope.routerState = $state;
     }]);
 
+//Szükséges fájlok betöltése
 require("HeaderController");
 require("HomeController");
 require("CandidatesController");

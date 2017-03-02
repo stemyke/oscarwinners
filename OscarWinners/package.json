@@ -4,7 +4,8 @@
   "description": "Idei Oscar nyertesek attekinto",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "rebuild-sass": "npm rebuild node-sass" 
   },
   "author": "Stemler Balazs Akos",
   "license": "MIT",

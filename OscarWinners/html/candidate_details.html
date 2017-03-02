@@ -1,21 +1,23 @@
 <div class="content col-sm-10 col-sm-offset-1 col-xs-12 details">
-    <div class="col-sm-5 center">
+    <div class="col-md-5 center">
         <image class="cover-big" ng-src="{{candidate.cover ? candidate.cover : 'img/no_image.png'}}" alt="Cover"></image>
         <div>
             <i class="fa star-big" ng-class="{'fa-star': candidate.isWinner, 'fa-star-o': !candidate.isWinner}" aria-hidden="true"></i>
         </div>
     </div>
-    <div class="col-sm-7">
+    <div class="col-md-7">
         <div>
-            <label class="col-lg-2 col-md-3 col-sm-4 right">{{'DETAILS.TITLE' | translate}}: </label>
+            <label class="col-lg-2 col-md-3 col-sm-4 right">{{'CANDIDATE_FORM.TITLE' | translate}}: </label>
             <label class="col-lg-10 col-md-9 col-sm-8">{{candidate.title}}</label>
         </div>
         <div>
-            <label class="col-lg-2 col-md-3 col-sm-4 right">{{'DETAILS.DESCRIPTION' | translate}}: </label>
+            <label class="col-lg-2 col-md-3 col-sm-4 right">{{'CANDIDATE_FORM.DESCRIPTION' | translate}}: </label>
             <label class="col-lg-10 col-md-9 col-sm-8">{{candidate.description}}</label>
         </div>
     </div>
     <div class="col-xs-12 right">
+        <button type="button" class="btn btn-default" ui-sref="add">{{'DETAILS.ADD' | translate}}</button>
+        <button type="button" class="btn btn-default" ui-sref="edit({id: candidate.id})">{{'DETAILS.EDIT' | translate}}</button>
         <button type="button" class="btn btn-default" ui-sref="candidates">{{'DETAILS.BACK' | translate}}</button>
     </div>
 </div>

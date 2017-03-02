@@ -1,5 +1,6 @@
 ﻿angular = require("angular");
 
+//Fejléc controllere
 angular.module("app").controller("HeaderController", ["$rootScope", "$scope", "$translate", "$filter", function ($rootScope, $scope, $translate, $filter) {
         
     //Címsor megváltoztatása   

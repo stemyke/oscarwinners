@@ -32,10 +32,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="assets\candidates_data.json" />
     <Content Include="assets\images\logo.jpg" />
     <Content Include="assets\translations\en.json" />
     <Content Include="assets\translations\hu.json" />
     <Content Include="html\candidates.html" />
+    <Content Include="html\candidate_details.html" />
     <Content Include="html\candidate_form.html" />
     <Content Include="html\header.html" />
     <Content Include="html\home.html" />
@@ -54,6 +56,7 @@
     <Folder Include="js\" />
     <Folder Include="js\controllers\" />
     <Folder Include="html\" />
+    <Folder Include="js\directives\" />
     <Folder Include="js\filters\" />
     <Folder Include="js\services\" />
     <Folder Include="styles\" />
@@ -62,9 +65,13 @@
   <ItemGroup>
     <Compile Include="gulpfile.js" />
     <Compile Include="js\app.js" />
+    <Compile Include="js\controllers\AddCandidateController.js" />
+    <Compile Include="js\controllers\CandidateDetailsController.js" />
     <Compile Include="js\controllers\CandidatesController.js" />
     <Compile Include="js\controllers\EditCandidateController.js" />
+    <Compile Include="js\controllers\HeaderController.js" />
     <Compile Include="js\controllers\HomeController.js" />
+    <Compile Include="js\directives\OnFileChangeDirective.js" />
     <Compile Include="js\filters\StartFromFilter.js" />
     <Compile Include="js\services\OscarService.js" />
     <Compile Include="karma.conf.js" />

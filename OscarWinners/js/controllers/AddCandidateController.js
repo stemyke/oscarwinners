@@ -1,15 +1,19 @@
 angular = require("angular");
 
-angular.module("app").controller("AddCandidateController", ["$scope", "$location", "OscarService", function ($scope, $location, oscarService) {
+//Jelölt hozzáadására szolgáló controller
+angular.module("app").controller("AddCandidateController", ["$scope", "$location", "OscarService", "id", function ($scope, $location, oscarService, id) {
         
+    //Új jelölt
     $scope.candidate = {
-        id: oscarService.getNextId()
+        id: id
     };
         
+    //Borító frissítése
     $scope.updateCover = function (cover) {
         $scope.candidate.cover = cover;
     };
         
+    //Adatok mentése
     $scope.submit = function (invalid) {
         if (invalid) return;
         oscarService.addCandidate($scope.candidate).then(function () {

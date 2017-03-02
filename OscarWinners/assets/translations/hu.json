@@ -3,8 +3,8 @@
     "HOME": "Főoldal",
     "CANDIDATES": "Jelöltek",
     "WINNERS": "Nyertesek",
-    "ADD": "Jelölt hozzáadása",
-    "EDIT": "Jelölt módosítása",
+    "ADD": "Hozzáadás",
+    "EDIT": "Módosítás",
     "DETAILS": "Részletek"
   },
   "HEADER": {
@@ -14,7 +14,6 @@
   "CANDIDATES": {
     "TITLE": "Film címe",
     "TITLE_SEARCH": "Keresés a film címekben...",
-    "DESCRIPTION": "Leírás",
     "IS_WINNER": "Nyertes",
     "PREVIOUS": "Előző",
     "NEXT": "Következő",
@@ -24,15 +23,18 @@
   },
   "DETAILS": {
     "TITLE": "@:CANDIDATES.TITLE",
-    "DESCRIPTION": "@:CANDIDATES.DESCRIPTION",
+    "DESCRIPTION": "Leírás",
+    "ADD": "@:PAGES.ADD",
+    "EDIT": "@:PAGES.EDIT",
     "BACK": "Vissza a listára"
   },
   "CANDIDATE_FORM": {
     "TITLE": "@:CANDIDATES.TITLE",
     "TITLE_REQ": "A film címét kötelező megadni!",
-    "DESCRIPTION": "@:CANDIDATES.DESCRIPTION",
+    "DESCRIPTION": "@:DETAILS.DESCRIPTION",
     "DESCRIPTION_REQ": "A film leírását kötelező megadni!",
     "IS_WINNER": "@:CANDIDATES.IS_WINNER",
+    "BACK": "@:DETAILS.BACK",
     "COVER_IMAGE": "Borító kép",
     "SAVE": "Mentés"
   }
